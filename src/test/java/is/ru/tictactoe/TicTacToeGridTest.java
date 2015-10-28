@@ -128,4 +128,27 @@ public class TicTacToeGridTest {
 		TicTacToeGrid grid = new TicTacToeGrid(inputGrid);
 		assertEquals(false, grid.isWin());
 	}
+
+	@Test
+	public void testGetWinnerToken() {
+		Character[] inputGrid = 
+		{ 
+			'X', null, null, 
+			'O', 'O', 'X', 
+			'X', 'X', 'O',
+		};
+
+		TicTacToeGrid grid = new TicTacToeGrid(inputGrid);
+		assertEquals(null, grid.getWinnerToken());
+
+		Character[] inputGrid2 = 
+		{ 
+			'O', 'X', 'X', 
+			'O', 'O', 'X', 
+			'X', 'X', 'O',
+		};
+
+		grid = new TicTacToeGrid(inputGrid2);
+		assertEquals(new Character('O'), grid.getWinnerToken());
+	}
 }
