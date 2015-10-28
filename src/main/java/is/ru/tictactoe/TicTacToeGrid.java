@@ -23,6 +23,7 @@ public class TicTacToeGrid {
 	public TicTacToeGrid(Character[] grid) {
 		this.grid = grid;
 		checkGrid();
+		isWin();
 	}
 
 	private void checkGrid()
@@ -37,8 +38,8 @@ public class TicTacToeGrid {
 
 	public void insertTokenToSlot(char token, int slotIndex) throws  SlotAlreadyFilledException {
 		checkIndex(slotIndex);
-		
 		grid[slotIndex] = token;
+		isWin();
 	}
 
 	private void checkIndex(int index) throws SlotAlreadyFilledException {
@@ -49,6 +50,8 @@ public class TicTacToeGrid {
 	}
 
 	public boolean isWin() {
+		
+		if(winnerToken != null) return true;
 
 		for(int[] i : possibleWins) {
 			if(grid[i[0]] != null && grid[i[0]].equals(grid[i[1]]) && grid[i[1]].equals(grid[i[2]])) {
@@ -62,7 +65,6 @@ public class TicTacToeGrid {
 
 	public Character getWinnerToken()
 	{
-		if(winnerToken == null) isWin();
 		return winnerToken;
 	}
 }
