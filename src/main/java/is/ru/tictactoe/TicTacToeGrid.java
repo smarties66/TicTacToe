@@ -9,6 +9,7 @@ public class TicTacToeGrid {
 	****************************/
 	private Character[] grid;
 	private Character winnerToken = null;
+	int tokenCounter = 0;
 	private int[][] possibleWins = 
 	{
 		{0, 1, 2}, {3, 4, 5}, {6, 7, 8},
@@ -23,6 +24,7 @@ public class TicTacToeGrid {
 	public TicTacToeGrid(Character[] grid) {
 		this.grid = grid;
 		checkGrid();
+		fixTokenCounter();
 		isWin();
 	}
 
@@ -32,6 +34,15 @@ public class TicTacToeGrid {
 			throw new IllegalStateException("TicTacToeGrid must be of size 9. Illegal Size: " + grid.length);
 	}
 
+	private void fixTokenCounter()
+	{
+		tokenCounter = 0;
+
+		for(Character token : grid) {
+			if(token != null) tokenCounter++;
+		}
+	}
+
 	public Character[] getGrid(){
 		return grid;
 	}
@@ -39,6 +50,7 @@ public class TicTacToeGrid {
 	public void insertTokenToSlot(char token, int slotIndex) throws  SlotAlreadyFilledException {
 		checkIndex(slotIndex);
 		grid[slotIndex] = token;
+		tokenCounter++;
 		isWin();
 	}
 
@@ -66,5 +78,9 @@ public class TicTacToeGrid {
 	public Character getWinnerToken()
 	{
 		return winnerToken;
+	}
+
+	public boolean isDraw() {
+		return tokenCounter == grid.length && winnerToken == null;
 	}
 }

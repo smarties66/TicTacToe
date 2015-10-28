@@ -151,4 +151,32 @@ public class TicTacToeGridTest {
 		grid = new TicTacToeGrid(inputGrid2);
 		assertEquals(new Character('O'), grid.getWinnerToken());
 	}
+
+	@Test
+	public void testIsDraw() {
+		Character[] inputGrid = 
+		{ 
+			'X', 'X', null, 
+			'O', 'O', 'X', 
+			'X', 'X', 'O',
+		};
+
+		TicTacToeGrid grid = new TicTacToeGrid(inputGrid);
+		assertEquals(false, grid.isDraw());
+
+		try { grid.insertTokenToSlot('O', 2);}
+		catch(Exception e){}
+
+		assertEquals(true, grid.isDraw());
+
+		Character[] inputGrid2 = 
+		{ 
+			'X', 'X', 'X', 
+			'O', 'O', 'X', 
+			'X', 'O', 'O',
+		};
+
+		grid = new TicTacToeGrid(inputGrid2);
+		assertEquals(false, grid.isDraw());
+	}
 }
