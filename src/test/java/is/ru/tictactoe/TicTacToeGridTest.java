@@ -41,13 +41,6 @@ public class TicTacToeGridTest {
 
 	@Test
 	public void testInsertTokenToSlotThatIsNotEmpty() {
-		Character[] expectedGrid = 
-		{ 
-			'X', null, null, 
-			null, null, null, 
-			null, null, null,
-		};
-
 		TicTacToeGrid grid = new TicTacToeGrid();
 		
 		try { grid.insertTokenToSlot('X', 0); }
@@ -55,9 +48,22 @@ public class TicTacToeGridTest {
 
 		try {
 			grid.insertTokenToSlot('O', 0);
-			fail("Should have thrown exception");
+			fail("Should have thrown SlotAlreadyFilledException");
 		}catch(SlotAlreadyFilledException e){
 			assertEquals("Slot already has token", e.getMessage());
 		}
+	}
+
+	@Test
+	public void testInsertTokenOutOfBounds() {
+		TicTacToeGrid grid = new TicTacToeGrid();
+
+		try { 
+			grid.insertTokenToSlot('X', 10);
+			fail("Should have thrown IndexOutOfBoundsException"); 
+		}
+		catch(IndexOutOfBoundsException e) {
+			assertEquals("Index of slot ranges between 0 and 8. Invalid index: 10", e.getMessage());	
+		}catch(Exception e) {/*DO NOTHING*/}
 	}
 }

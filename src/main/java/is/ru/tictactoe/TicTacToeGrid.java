@@ -31,7 +31,9 @@ public class TicTacToeGrid {
 	}
 
 	private void checkIndex(int index) throws SlotAlreadyFilledException {
-		if(grid[index] != null)
+		if(index < 0 || index > 8)
+			throw new IndexOutOfBoundsException("Index of slot ranges between 0 and 8. Invalid index: " + index);
+		else if(grid[index] != null)
 			throw new SlotAlreadyFilledException("Slot already has token");
 	}
 }
