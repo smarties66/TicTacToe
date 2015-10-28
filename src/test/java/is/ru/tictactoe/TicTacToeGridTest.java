@@ -115,4 +115,17 @@ public class TicTacToeGridTest {
 		grid = new TicTacToeGrid(inputGrid2);
 		assertEquals(true, grid.isWin());
 	}
+
+	@Test
+	public void testIsWinWithNullSlots() {
+		Character[] inputGrid = 
+		{ 
+			'X', null, null, 
+			'O', 'O', 'X', 
+			'X', 'X', 'O',
+		};
+
+		TicTacToeGrid grid = new TicTacToeGrid(inputGrid);
+		assertEquals(false, grid.isWin());
+	}
 }

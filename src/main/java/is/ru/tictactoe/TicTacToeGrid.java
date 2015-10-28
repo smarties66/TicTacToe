@@ -51,7 +51,7 @@ public class TicTacToeGrid {
 	public boolean isWin() {
 
 		for(int[] i : possibleWins) {
-			if(grid[i[0]].equals(grid[i[1]]) && grid[i[1]].equals(grid[i[2]]))
+			if(grid[i[0]] != null && grid[i[0]].equals(grid[i[1]]) && grid[i[1]].equals(grid[i[2]]))
 				return true;
 		}
 
