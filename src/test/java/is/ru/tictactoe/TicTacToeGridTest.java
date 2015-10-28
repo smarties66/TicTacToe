@@ -32,7 +32,32 @@ public class TicTacToeGridTest {
 		};
 
 		TicTacToeGrid grid = new TicTacToeGrid();
-		grid.insertTokenToSlot('X', 0);
+		
+		try { grid.insertTokenToSlot('X', 0); }
+		catch(Exception e) {}
+
 		assertArrayEquals(expectedGrid, grid.getGrid());	
+	}
+
+	@Test
+	public void testInsertTokenToSlotThatIsNotEmpty() {
+		Character[] expectedGrid = 
+		{ 
+			'X', null, null, 
+			null, null, null, 
+			null, null, null,
+		};
+
+		TicTacToeGrid grid = new TicTacToeGrid();
+		
+		try { grid.insertTokenToSlot('X', 0); }
+		catch(Exception e){}
+
+		try {
+			grid.insertTokenToSlot('O', 0);
+			fail("Should have thrown exception");
+		}catch(Exception e){
+			assertEquals("Slot already has token", e.getMessage());
+		}
 	}
 }

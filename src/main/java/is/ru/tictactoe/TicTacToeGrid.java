@@ -24,7 +24,10 @@ public class TicTacToeGrid {
 		return grid;
 	}
 
-	public void insertTokenToSlot(char token, int slotIndex) {
+	public void insertTokenToSlot(char token, int slotIndex) throws Exception {
+		if(grid[slotIndex] != null) 
+			throw new Exception("Slot already has token");
+		
 		grid[slotIndex] = token;
 	}
 }
