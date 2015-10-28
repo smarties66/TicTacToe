@@ -22,6 +22,13 @@ public class TicTacToeGrid {
 
 	public TicTacToeGrid(Character[] grid) {
 		this.grid = grid;
+		checkGrid();
+	}
+
+	private void checkGrid()
+	{
+		if(grid.length != 9)
+			throw new IllegalStateException("TicTacToeGrid must be of size 9. Illegal Size: " + grid.length);
 	}
 
 	public Character[] getGrid(){

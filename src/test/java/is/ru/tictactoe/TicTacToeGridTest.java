@@ -80,4 +80,16 @@ public class TicTacToeGridTest {
 		assertArrayEquals(inputGrid, grid.getGrid());
 
 	}
+
+	@Test
+	public void testInitGridWithInvalidSize() {
+		Character[] inputGrid = new Character[10];
+
+		try {
+			TicTacToeGrid grid = new TicTacToeGrid(inputGrid);
+			fail("Should have thrown IllegalStateException");
+		}catch(IllegalStateException e) {
+			assertEquals("TicTacToeGrid must be of size 9. Illegal Size: 10", e.getMessage());
+		}
+	}
 }
