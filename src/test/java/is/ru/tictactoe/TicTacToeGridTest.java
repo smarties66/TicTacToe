@@ -56,7 +56,7 @@ public class TicTacToeGridTest {
 		try {
 			grid.insertTokenToSlot('O', 0);
 			fail("Should have thrown exception");
-		}catch(Exception e){
+		}catch(SlotAlreadyFilledException e){
 			assertEquals("Slot already has token", e.getMessage());
 		}
 	}
