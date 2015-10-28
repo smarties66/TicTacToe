@@ -20,6 +20,10 @@ public class TicTacToeGrid {
 		grid = new Character[9];
 	}
 
+	public TicTacToeGrid(Character[] grid) {
+		this.grid = grid;
+	}
+
 	public Character[] getGrid(){
 		return grid;
 	}

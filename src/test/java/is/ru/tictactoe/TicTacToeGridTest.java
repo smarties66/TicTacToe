@@ -66,4 +66,18 @@ public class TicTacToeGridTest {
 			assertEquals("Index of slot ranges between 0 and 8. Invalid index: 10", e.getMessage());	
 		}catch(Exception e) {/*DO NOTHING*/}
 	}
+
+	@Test
+	public void testSetTicTacToeGridStateConstructor() {
+		Character[] inputGrid = 
+		{ 
+			'X', 'O', 'X', 
+			'O', 'O', 'X', 
+			'X', 'X', 'O',
+		};
+
+		TicTacToeGrid grid = new TicTacToeGrid(inputGrid);
+		assertArrayEquals(inputGrid, grid.getGrid());
+
+	}
 }
