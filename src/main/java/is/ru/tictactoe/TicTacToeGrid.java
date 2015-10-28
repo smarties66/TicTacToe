@@ -25,5 +25,6 @@ public class TicTacToeGrid {
 	}
 
 	public void insertTokenToSlot(char token, int slotIndex) {
+		grid[slotIndex] = token;
 	}
 }

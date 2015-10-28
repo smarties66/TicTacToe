@@ -21,4 +21,18 @@ public class TicTacToeGridTest {
 		TicTacToeGrid grid = new TicTacToeGrid(); 
 		assertArrayEquals(expectedGrid, grid.getGrid());
 	}
+
+	@Test
+	public void testInsertXToASlot() {
+		Character[] expectedGrid = 
+		{ 
+			'X', null, null, 
+			null, null, null, 
+			null, null, null,
+		};
+
+		TicTacToeGrid grid = new TicTacToeGrid();
+		grid.insertTokenToSlot('X', 0);
+		assertArrayEquals(expectedGrid, grid.getGrid());	
+	}
 }
