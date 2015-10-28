@@ -92,4 +92,27 @@ public class TicTacToeGridTest {
 			assertEquals("TicTacToeGrid must be of size 9. Illegal Size: 10", e.getMessage());
 		}
 	}
+
+	@Test
+	public void testIsWin() {
+		Character[] inputGrid = 
+		{ 
+			'X', 'O', 'X', 
+			'O', 'O', 'X', 
+			'X', 'X', 'O',
+		};
+
+		TicTacToeGrid grid = new TicTacToeGrid(inputGrid);
+		assertEquals(false, grid.isWin());
+
+		Character[] inputGrid2 = 
+		{ 
+			'X', 'X', 'X', 
+			'O', 'X', 'O', 
+			'X', 'O', 'O',
+		};
+
+		grid = new TicTacToeGrid(inputGrid2);
+		assertEquals(true, grid.isWin());
+	}
 }

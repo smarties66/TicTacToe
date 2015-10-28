@@ -47,4 +47,14 @@ public class TicTacToeGrid {
 		else if(grid[index] != null)
 			throw new SlotAlreadyFilledException("Slot already has token");
 	}
+
+	public boolean isWin() {
+
+		for(int[] i : possibleWins) {
+			if(grid[i[0]].equals(grid[i[1]]) && grid[i[1]].equals(grid[i[2]]))
+				return true;
+		}
+
+		return false;
+	}
 }
