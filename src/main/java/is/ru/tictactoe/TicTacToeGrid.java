@@ -49,6 +49,10 @@ public class TicTacToeGrid {
 
 	public void insertTokenToSlot(char token, int slotIndex) throws  SlotAlreadyFilledException {
 		checkIndex(slotIndex);
+
+		if(isGameOver()) 
+			throw new IllegalStateException("Illegal State: Game over, token cannot be inserted"); 
+
 		grid[slotIndex] = token;
 		tokenCounter++;
 		isWin();
@@ -59,6 +63,10 @@ public class TicTacToeGrid {
 			throw new IndexOutOfBoundsException("Index of slot ranges between 0 and 8. Invalid index: " + index);
 		else if(grid[index] != null)
 			throw new SlotAlreadyFilledException("Slot already has token");
+	}
+
+	public boolean isGameOver() {
+		return winnerToken != null || tokenCounter == grid.length;
 	}
 
 	public boolean isWin() {
