@@ -196,6 +196,21 @@ public class TicTacToeGridTest {
 			fail("Should have thrown IllegalStateException");
 		}catch(IllegalStateException e) {
 			assertEquals("Illegal State: Game over, token cannot be inserted", e.getMessage());
-		}catch (SlotAlreadyFilledException e) {}
+		}catch (SlotAlreadyFilledException e) {fail("Should have thrown IllegalStateException");}
+
+		Character[] inputGrid2 = 
+		{ 
+			'O', 'X', 'X', 
+			'O', 'O', 'X', 
+			'X', 'O', 'O',
+		};
+
+		grid = new TicTacToeGrid(inputGrid2);
+		try {
+			grid.insertTokenToSlot('X', 8);
+			fail("Should have thrown IllegalStateException");
+		}catch(IllegalStateException e) {
+			assertEquals("Illegal State: Game over, token cannot be inserted", e.getMessage());
+		}catch (SlotAlreadyFilledException e) {fail("Should have thrown IllegalStateException");}
 	}
 }

@@ -48,11 +48,11 @@ public class TicTacToeGrid {
 	}
 
 	public void insertTokenToSlot(char token, int slotIndex) throws  SlotAlreadyFilledException {
-		checkIndex(slotIndex);
 
 		if(isGameOver()) 
 			throw new IllegalStateException("Illegal State: Game over, token cannot be inserted"); 
 
+		checkIndex(slotIndex);
 		grid[slotIndex] = token;
 		tokenCounter++;
 		isWin();
