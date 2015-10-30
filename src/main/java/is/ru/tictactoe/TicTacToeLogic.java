@@ -22,4 +22,12 @@ public class TicTacToeLogic {
 		return player2.getName();
 	}
 	
+	public int getPlayer1Score() {
+		return player1.getWinCount();
+	}
+	
+	public int getPlayer2Score() {
+		return player2.getWinCount();
+	}
+	
 }

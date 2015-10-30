@@ -23,4 +23,17 @@ public class TicTacToeLogicTest {
 		assertEquals(logic.getPlayer2Name(), "Agust");
 	}
 	
+	@Test
+	public void testGetPlayerScore() {
+		Player player1 = mock(Player.class);
+		when(player1.getWinCount()).thenReturn(2);
+
+		Player player2 = mock(Player.class);
+		when(player2.getWinCount()).thenReturn(3);
+
+		TicTacToeLogic logic = new TicTacToeLogic(player1, player2, new TicTacToeGrid());
+		assertEquals(logic.getPlayer1Score(), 2);
+		assertEquals(logic.getPlayer2Score(), 3);
+	}
+	
 }
