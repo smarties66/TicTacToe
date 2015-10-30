@@ -11,3 +11,9 @@ repositories {
 dependencies {
   testCompile 'junit:junit:4.11'
 }
+
+jar {
+	manifest {
+		attributes("Main-Class" : "is.ru.tictactoe.TicTacToeApp")
+	}
+}
