@@ -2,24 +2,25 @@ package is.ru.tictactoe;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 public class TicTacToeLogicTest {
 	
 	public static void main(String args[]) {
 		org.junit.runner.JUnitCore.main("is.ru.tictactoe.TicTacToeLogicTest");
 	}
-	
+
 	@Test
-	public void testIfCorrectPlayerReturned() {
-		
-		Player p1 = new Player("Simmi", 'X');
-		Player p2 = new Player("Jói", 'O');
-		
-		TicTacToeLogic tic = new TicTacToeLogic(p1, p2);
-		
-		Player player1FromTic = tic.getPlayer1();
-		assertEquals("Simmi", player1FromTic.getName());
-		assertEquals('X', player1FromTic.getToken());
+	public void testGetPlayerName() {
+		Player player1 = mock(Player.class);
+		when(player1.getName()).thenReturn("Sverrir");
+
+		Player player2 = mock(Player.class);
+		when(player2.getName()).thenReturn("Agust");
+
+		TicTacToeLogic logic = new TicTacToeLogic(player1, player2, new TicTacToeGrid());
+		assertEquals(logic.getPlayer1Name(), "Sverrir");
+		assertEquals(logic.getPlayer2Name(), "Agust");
 	}
 	
 }

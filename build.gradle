@@ -10,6 +10,12 @@ repositories {
 
 dependencies {
   testCompile 'junit:junit:4.11'
+  testCompile "org.mockito:mockito-core:1.+"
+   testCompile 'org.easymock:easymock:2.+'
+}
+
+task stage {
+	dependsOn installDist
 }
 
 jar {
