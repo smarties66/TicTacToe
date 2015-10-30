@@ -36,4 +36,21 @@ public class TicTacToeLogicTest {
 		assertEquals(logic.getPlayer2Score(), 3);
 	}
 	
+	@Test
+	public void testGetGameGrid() {
+		TicTacToeGrid grid = mock(TicTacToeGrid.class);
+		Player player1 = mock(Player.class);
+		Player player2 = mock(Player.class);
+		Character[] expectedGrid = 
+		{ 
+			null, null, null, 
+			null, null, null, 
+			null, null, null,
+		};
+		when(grid.getGrid()).thenReturn(expectedGrid);
+
+		TicTacToeLogic logic = new TicTacToeLogic(player1, player2, new TicTacToeGrid());
+		assertEquals(logic.getGameGrid(), expectedGrid);
+	}
+	
 }

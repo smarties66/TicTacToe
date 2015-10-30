@@ -30,4 +30,8 @@ public class TicTacToeLogic {
 		return player2.getWinCount();
 	}
 	
+	public Character[] getGameGrid() {
+		return grid.getGrid();
+	}
+	
 }
